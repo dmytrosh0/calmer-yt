@@ -1,0 +1,30 @@
+/* ---------- trimGuide — left menu: keep only the top section (Home / Subscriptions) ---------- */
+
+html.ut-trim-guide ytd-guide-renderer #sections > ytd-guide-section-renderer:not(:first-child),
+html.ut-trim-guide ytd-guide-renderer #footer {
+  display: none !important;
+}
+
+/* ---------- hideGuide — left menu: hide completely ---------- */
+
+html.ut-hide-guide ytd-app #guide,
+html.ut-hide-guide ytd-mini-guide-renderer,
+html.ut-hide-guide #guide-button {
+  display: none !important;
+}
+
+/* YouTube reserves space for the menu, so take that back too */
+html.ut-hide-guide ytd-app[guide-persistent-and-visible] ytd-page-manager,
+html.ut-hide-guide ytd-app[mini-guide-visible] ytd-page-manager {
+  margin-left: 0 !important;
+}
+
+/* ---------- hideTopbarExtras — "Create" and voice search ---------- */
+/* "Create" is matched by structure, not label, so it works in any UI language:
+   when signed in, it's the only plain button in the top-right group.
+   Side effect: when signed out, "Sign in" (same element type) is hidden too. */
+
+html.ut-hide-topbar-extras ytd-masthead #buttons > ytd-button-renderer,
+html.ut-hide-topbar-extras ytd-masthead #voice-search-button {
+  display: none !important;
+}

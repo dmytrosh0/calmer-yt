@@ -1,0 +1,7 @@
+/* hideRelated — hide suggested videos on the watch page.
+   Only the suggestions list is hidden, so a playlist panel or live chat still shows. */
+
+html.ut-hide-related ytd-watch-flexy #related,
+html.ut-hide-related ytd-watch-next-secondary-results-renderer {
+  display: none !important;
+}

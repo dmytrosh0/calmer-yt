@@ -1,0 +1,9 @@
+/* noHoverPreview — hide the inline preview player on thumbnails.
+   content.js also pauses/mutes it, since a hidden video can keep playing. */
+
+html.ut-no-hover-preview ytd-video-preview,
+html.ut-no-hover-preview #video-preview,
+html.ut-no-hover-preview #inline-preview-player,
+html.ut-no-hover-preview ytd-thumbnail-overlay-loading-preview-renderer {
+  display: none !important;
+}

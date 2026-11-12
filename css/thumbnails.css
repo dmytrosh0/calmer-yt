@@ -1,0 +1,14 @@
+/* calmThumbnails — mute thumbnail colors; full color returns on hover.
+   Tuning: saturate() 1 = normal, 0 = grayscale (0.4–0.7 is "calm but colorful").
+           brightness() ~0.9 takes the glare off; below 0.8 looks dim. */
+
+html.ut-calm-thumbnails ytd-thumbnail,
+html.ut-calm-thumbnails yt-thumbnail-view-model {
+  filter: saturate(0.6) brightness(0.92);
+  transition: filter 0.2s ease;
+}
+
+html.ut-calm-thumbnails ytd-thumbnail:hover,
+html.ut-calm-thumbnails yt-thumbnail-view-model:hover {
+  filter: none;
+}

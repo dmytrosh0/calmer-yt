@@ -1,0 +1,5 @@
+/* homeRedirect — hide the home feed during the redirect so it doesn't flash. */
+
+html.ut-home-redirect ytd-browse[page-subtype="home"] {
+  visibility: hidden !important;
+}

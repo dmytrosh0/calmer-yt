@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Calmer YT",
+  "version": "1.3.0",
+  "description": "Personal YouTube cleanup: subscriptions instead of home, no Shorts, no hover previews, calmer layout.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvh2orPiUKpy/LV05odkuAcrvMNbYi04MsZXUtY68Z40pEa/FkxLZbQ5LoWA9ZHPEWpIHwO86pd26ORAwIHDWtXfHOeOo0CRgDTrmfRC2j2zvWz/4dSdHFvkZsT//ceNRcEzr0j5jtoT/HPHnU/MH3M/DjMJBtkq0GR+4fpuaLmniM8AUkxgPLkY08oNTQyI0ZbLPSCQmeDplSae8hSzxnFZemxRqRcHNKUMbz9zWcQnAKm3TMlW4Toe4cn2yDpS/YuyDNhxV9Gunp4gzoSoHW55M1QVi0dzzH12tn0CL462whm3kK76XwWenaHB/fIM4AmoNXfyRkguJ46DjBZ0pTwIDAQAB",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://m.youtube.com/*"
+      ],
+      "css": [
+        "css/home-redirect.css",
+        "css/shorts.css",
+        "css/hover-preview.css",
+        "css/thumbnails.css",
+        "css/related.css",
+        "css/layout.css"
+      ],
+      "js": [
+        "features.js",
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "Calmer YT",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  }
+}

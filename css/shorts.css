@@ -1,0 +1,30 @@
+/* hideShorts — Shorts shelves, individual Shorts, menu entries, tabs and chips.
+   Opening a /shorts/ link is handled in content.js (redirects to the normal player). */
+
+/* Shorts shelves (home, subscriptions, search, channel pages) */
+html.ut-hide-shorts ytd-rich-shelf-renderer[is-shorts],
+html.ut-hide-shorts ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+html.ut-hide-shorts ytd-reel-shelf-renderer,
+html.ut-hide-shorts grid-shelf-view-model:has(ytm-shorts-lockup-view-model),
+html.ut-hide-shorts grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2),
+
+/* Individual Shorts mixed into normal grids and lists */
+html.ut-hide-shorts ytd-rich-item-renderer:has(a[href^="/shorts/"]),
+html.ut-hide-shorts ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model),
+html.ut-hide-shorts ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model-v2),
+html.ut-hide-shorts ytd-video-renderer:has(a[href^="/shorts/"]),
+html.ut-hide-shorts ytd-grid-video-renderer:has(a[href^="/shorts/"]),
+html.ut-hide-shorts ytd-compact-video-renderer:has(a[href^="/shorts/"]),
+html.ut-hide-shorts yt-lockup-view-model:has(a[href^="/shorts/"]),
+
+/* "Shorts" in the left menu (full and collapsed) */
+html.ut-hide-shorts ytd-guide-entry-renderer:has(a[title="Shorts"]),
+html.ut-hide-shorts ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+
+/* "Shorts" tab on channel pages */
+html.ut-hide-shorts yt-tab-shape[tab-title="Shorts"],
+
+/* "Shorts" filter chip in search */
+html.ut-hide-shorts yt-chip-cloud-chip-renderer:has([title="Shorts"]) {
+  display: none !important;
+}
