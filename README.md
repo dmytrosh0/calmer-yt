@@ -19,9 +19,18 @@ Every feature has a switch in the toolbar popup. Changes apply instantly to open
 
 ## Install
 
-1. Clone the repo (`calmer-yt`) somewhere permanent (not Downloads; the folder *is* the extension).
+### From a release (easiest)
+
+1. Download `calmer-yt-vX.Y.Z.zip` from the [latest release](../../releases/latest) and unzip it somewhere permanent (not Downloads; the folder *is* the extension).
 2. Open `chrome://extensions` (or your browser's equivalent, e.g. `edge://extensions`) and turn on **Developer mode**.
-3. Click **Load unpacked** and choose the repo folder.
+3. Click **Load unpacked** and choose the unzipped folder.
+
+To update, download the new zip, replace the folder's contents, and click the reload arrow on the extension card.
+
+### From source
+
+1. Clone the repo (`calmer-yt`) somewhere permanent.
+2. Follow steps 2 and 3 above, choosing the repo folder.
 
 Repeat on each computer.
 
@@ -44,6 +53,13 @@ Without it, Chrome derives the ID from the folder path, so the same extension at
 Don't remove and re-add the extension to update it: removing it wipes the stored settings.
 
 Bump `version` in `manifest.json` when you change something, so `chrome://extensions` shows which computer is behind.
+
+## Releasing
+
+1. Bump `version` in `manifest.json` and commit.
+2. Tag and push: `git tag vX.Y.Z && git push origin main --tags`.
+
+The `Release` workflow checks that the tag matches the manifest version, zips the extension files, and publishes a GitHub Release with the zip attached.
 
 ## When YouTube breaks something
 
@@ -75,6 +91,7 @@ The popup renders itself from `features.js`, so there's nothing else to wire up.
 
 ```
 manifest.json      Extension manifest (with pinned key)
+.github/workflows/ Release automation (zip on tag)
 features.js        Feature list: single source of truth for content script and popup
 content.js         Applies classes, handles redirects and hover previews
 css/               One file per feature area, all rules gated by <html> classes
